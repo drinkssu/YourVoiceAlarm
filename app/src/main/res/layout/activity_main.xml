@@ -7,6 +7,7 @@
 
     <TextView
         android:id="@+id/mtextView"
+        android:textColor="#000000"
         android:textSize="20dp"
         android:text=""
         android:background="@drawable/xml_border"
