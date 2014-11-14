@@ -43,7 +43,7 @@ public class AlarmReceive extends BroadcastReceiver {
                 .setContentIntent(intent3)
                 .build();
 
-//        mNoti.flags |= Notification.FLAG_INSISTENT;
+        mNoti.flags |= Notification.FLAG_INSISTENT;
         mNoti.flags |= Notification.FLAG_NO_CLEAR;
         mNoti.defaults |= Notification.DEFAULT_ALL;
 

@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
             calendar.set(myear, mmonth , mday, mhh, mmm);
 
             malarm.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pender);
-            Toast.makeText(getBaseContext(), "Alram Setting success", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Alram Setting success", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
                 //malarm=(AlarmManager)this.getSystemService(ALARM_SERVICE);
                 malarm.cancel(pender);
 
-                Toast.makeText(getBaseContext(), "Alram Setting Release", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Alram Setting Release", Toast.LENGTH_SHORT).show();
                 myear = today.get(today.YEAR);
                 mmonth = today.get(today.MONTH);
                 mday = today.get(today.DAY_OF_MONTH);

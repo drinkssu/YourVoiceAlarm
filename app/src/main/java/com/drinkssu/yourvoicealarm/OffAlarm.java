@@ -2,14 +2,20 @@ package com.drinkssu.yourvoicealarm;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Random;
 
 import java.util.GregorianCalendar;
@@ -34,6 +40,12 @@ public class OffAlarm extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        r = RingtoneManager.getRingtone(this, Settings.System.DEFAULT_RINGTONE_URI);
+        r.play();
+        Vi = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
+        Vi.vibrate(pattern, 0);                                         // 패턴을 지정하고 반복횟수를 지정
+
         GregorianCalendar today = new GregorianCalendar ( );
 
         rnd = new Random();
@@ -84,6 +96,8 @@ public class OffAlarm extends Activity{
             public void onClick(View v) {
                 if(answer.getText().toString().equals(String.valueOf(rnd_num1+rnd_num2))) {
                     nm.cancel(9267);
+                    r.stop();
+                    Vi.cancel();
                     finish();
                 }
                 else
@@ -109,18 +123,15 @@ public class OffAlarm extends Activity{
 
     protected void onUserLeaveHint(){
         super.onUserLeaveHint();
-
+        Toast.makeText(getApplicationContext(), "aaaaaaaaa", Toast.LENGTH_SHORT).show();
+        onRestart();
     }
 }
 
- /*     r = RingtoneManager.getRingtone(this, Settings.System.DEFAULT_RINGTONE_URI);
-        r.play();
-        Vi = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
-        Vi.vibrate(pattern, 0);                                         // 패턴을 지정하고 반복횟수를 지정
+ /*
 
                 nm.cancel(9267);
                 finish();
 
-                r.stop();
-                Vi.cancel();
+
 */
