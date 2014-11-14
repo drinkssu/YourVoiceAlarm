@@ -48,7 +48,7 @@ public class AlarmReceive extends BroadcastReceiver {
         mNoti.defaults |= Notification.DEFAULT_ALL;
 
 
-        notifier.notify(9267, mNoti);
+        notifier.notify(3191, mNoti);
 
     }
 
