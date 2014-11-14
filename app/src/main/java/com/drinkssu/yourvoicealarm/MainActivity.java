@@ -1,78 +1,143 @@
 package com.drinkssu.yourvoicealarm;
 
-
-import android.media.Image;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.FragmentManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.integration.volley.VolleyUrlLoader;
-import com.bumptech.glide.load.model.GlideUrl;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-import org.json.JSONObject;
 
-import java.io.InputStream;
+public class MainActivity extends Activity {
 
-public class MainActivity extends ActionBarActivity{
+    Button set_Alarm;
+    Button release_Alarm;
+    TextView mtextView;
 
-    ImageView imageView;
+    Bundle b_a = new Bundle();
+    Bundle b_b = new Bundle();
 
-    TextView textView;
+    GregorianCalendar today = new GregorianCalendar ( );
+
+    int myear = today.get(today.YEAR);
+    int mmonth = today.get(today.MONTH);
+    int mday = today.get(today.DAY_OF_MONTH);
+    int mhh = today.get (today.HOUR_OF_DAY);
+    int mmm = today.get (today.MINUTE);
+
+    public static AlarmManager malarm;
+    Intent mintent;
+    FragmentManager fm = getFragmentManager();
+    PendingIntent pender;
+    Handler mHandler_b = new Handler(){
+        @Override
+        public void handleMessage(Message m){
+            /** Creating a bundle object to pass currently set Time to the fragment */
+            b_b = m.getData();
+
+            mhh = b_b.getInt("set_hour");
+
+            mmm = b_b.getInt("set_minute");
+            /** Displaying a short time message containing time set by Timer dialog fragment */
+            mtextView.setText(""+ myear +"년 "+ (mmonth+1) +"월 "+ mday +"일 "+mhh+"시 "+mmm+"분");
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(myear, mmonth , mday, mhh, mmm);
+
+            malarm.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pender);
+            Toast.makeText(getBaseContext(), "Alram Setting success", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    Handler mHandler_a = new Handler(){
+        @Override
+        public void handleMessage(Message m){
+            /** Creating a bundle object to pass currently set Time to the fragment */
+
+            b_a = m.getData();
+
+            myear = b_a.getInt("set_year");
+
+            mmonth = b_a.getInt("set_month");
+
+            mday = b_a.getInt("set_day");
+
+            TimerDialogFragment dTDF = new TimerDialogFragment(mHandler_b);
+            dTDF.setArguments(b_b);
+            dTDF.show(fm, "Timer Dialog Fragment");
+            /** Displaying a short time message containing time set by Timer dialog fragment */
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = (ImageView)findViewById(R.id.imageview);
-        textView = (TextView)findViewById(R.id.textview);
+        set_Alarm = (Button) findViewById(R.id.set_Alarm);
+        release_Alarm = (Button) findViewById(R.id.release_Alarm);
+        mtextView = (TextView) findViewById(R.id.mtextView);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        if (toolbar != null) {
-            setSupportActionBar(toolbar);
-        }
+        mtextView.setText(""+ myear +"년 "+ (mmonth+1) +"월 "+ mday +"일 "+mhh+"시 "+mmm+"분");
 
-        Glide.with(this)
-                .load("http://i.imgur.com/HaouSvg.gif")
-                .into(imageView);
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        final String url = "http://httpbin.org/get?param1=hello";
 
-// prepare the Request
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>()
-                {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // display response
-                        Log.d("Response", response.toString());
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.toString());
-                    }
-                }
-        );
+        malarm = (AlarmManager) this
+                .getSystemService(Context.ALARM_SERVICE);
 
-// add it to the RequestQueue
-        queue.add(getRequest);
+        mintent = new Intent(this,
+                AlarmReceive.class);
+
+        pender = PendingIntent.getBroadcast(
+                this, 0, mintent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        set_Alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                b_a.putInt("set_year", myear);
+
+                b_a.putInt("set_month", mmonth);
+
+                b_a.putInt("set_day", mday);
+
+                b_b.putInt("set_hour", mhh);
+
+                b_b.putInt("set_minute", mmm);
+
+                DatePickerFragment dDPF = new DatePickerFragment(mHandler_a);
+                dDPF.setArguments(b_a);
+                dDPF.show(fm, "Date Picker Fragment");
+            }
+        });
+
+        release_Alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //malarm=(AlarmManager)this.getSystemService(ALARM_SERVICE);
+                malarm.cancel(pender);
+
+                Toast.makeText(getBaseContext(), "Alram Setting Release", Toast.LENGTH_SHORT).show();
+                myear = today.get(today.YEAR);
+                mmonth = today.get(today.MONTH);
+                mday = today.get(today.DAY_OF_MONTH);
+                mhh = today.get (today.HOUR_OF_DAY);
+                mmm = today.get (today.MINUTE);
+                mtextView.setText(""+ myear +"년 "+ (mmonth+1) +"월 "+ mday +"일 "+mhh+"시 "+mmm+"분");
+            }
+        });
     }
 
 
