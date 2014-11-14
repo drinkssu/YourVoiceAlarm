@@ -78,6 +78,7 @@ public class OffAlarm extends Activity{
                 btn2.setVisibility(View.INVISIBLE);
             }
         });
+        
         btn2 = (Button)findViewById(R.id.release_Alarm);
         btn2.setText("Turn_Off_by_IQtest");
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,7 @@ public class OffAlarm extends Activity{
                 btn2.setVisibility(View.INVISIBLE);
             }
         });
+
         Abtn = (Button)findViewById(R.id.Abtn);
         Abtn.setOnClickListener(new View.OnClickListener() {
             @Override
