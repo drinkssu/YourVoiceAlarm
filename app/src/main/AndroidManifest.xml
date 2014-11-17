@@ -23,7 +23,6 @@
         <receiver android:name="com.drinkssu.yourvoicealarm.AlarmReceive" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -31,29 +30,26 @@
         <activity android:name="com.drinkssu.yourvoicealarm.OffAlarm" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.drinkssu.yourvoicealarm.RecordVoice"
+            android:name="com.drinkssu.yourvoicealarm.alarmactivity"
             android:label="@string/app_name" >
-      //이놈 임시로 위치 수정 메인
+        </activity>
+        <activity
+            android:name="com.drinkssu.yourvoicealarm.create_alarm_activity"
+            android:label="@string/title_activity_create_alarm_activity" >
+        </activity>
+        <activity
+            android:name="com.drinkssu.yourvoicealarm.RecordVoice"
+            android:label="@string/title_activity_record_voice" >
+        </activity>
+        <activity android:name=".Main_alarm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.drinkssu.yourvoicealarm.MainActivity"
-            android:label="@string/title_activity_create_alarm_activity" >
-      // 얘랑 바꿧다
-        </activity>
-        <activity
-
-            android:name="com.drinkssu.yourvoicealarm.create_alarm_activity"
-            android:label="@string/title_activity_record_voice" >
         </activity>
     </application>
 

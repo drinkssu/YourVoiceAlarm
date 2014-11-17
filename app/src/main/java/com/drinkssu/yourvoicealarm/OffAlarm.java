@@ -41,7 +41,7 @@ public class OffAlarm extends Activity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.alram_activity);
 
         r = RingtoneManager.getRingtone(this, Settings.System.DEFAULT_RINGTONE_URI);
         r.play();

@@ -20,7 +20,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
-public class MainActivity extends Activity {
+public class alarmactivity extends Activity {
 
     Button set_Alarm;
     Button release_Alarm;
@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.alram_activity);
 
         set_Alarm = (Button) findViewById(R.id.set_Alarm);
         release_Alarm = (Button) findViewById(R.id.release_Alarm);
