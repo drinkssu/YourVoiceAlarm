@@ -1,6 +1,7 @@
 package com.drinkssu.yourvoicealarm;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,8 @@ public class Main_alarm_list extends Fragment
         add_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "버튼 눌림", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), create_alarm_activity.class);
+                startActivity(intent);
             }
         });
     }
