@@ -4,7 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+   // 오디오 레코드
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+ // 알람녹음파일 저장 퍼미션
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -51,9 +54,12 @@
       // 얘랑 바꿧다
         </activity>
         <activity
-
             android:name="com.drinkssu.yourvoicealarm.create_alarm_activity"
             android:label="@string/title_activity_record_voice" >
+        </activity>
+        <activity
+            android:name="com.drinkssu.yourvoicealarm.InputAlarmNameDialog"
+            android:label="@string/title_activity_input_alarm_name_dialog" >
         </activity>
     </application>
 

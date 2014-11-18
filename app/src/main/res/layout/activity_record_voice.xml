@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context="com.drinkssu.yourvoicealarm.RecordVoice">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="알람 녹음"
+        android:textSize="30dp"/>
     <ImageView
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
@@ -23,6 +29,8 @@
         android:layout_height="20dp"
         android:id="@+id/progressBar"
         android:layout_gravity="center_horizontal"
+        android:progress="0"
+        android:max="4"
         />
 
     <GridLayout
@@ -30,17 +38,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:columnCount="3">
+        android:columnCount="4">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bAlarmList"
+            android:text="리스트"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bPlay"
             android:text="재생"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="취소"
+            android:text="녹음"
+            android:id="@+id/bRecordVoice"
             />
         <Button
             android:layout_width="wrap_content"
@@ -54,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:src="@drawable/ic_launcher"
+        android:id="@+id/equlizer"
         />
 
 
