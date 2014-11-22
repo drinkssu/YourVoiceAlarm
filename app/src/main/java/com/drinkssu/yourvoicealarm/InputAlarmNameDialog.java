@@ -37,7 +37,7 @@ public class InputAlarmNameDialog extends DialogFragment {
 
 
         File path = null;
-        path = new File(RECORED_FILE.getAbsolutePath()+"/YourVoiceAlarm/alarm_user"); // 디렉토리 만들어쥬는부분!!!
+        path = new File(RECORED_FILE.getAbsolutePath()+"/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user"); // 디렉토리 만들어쥬는부분!!!
         if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
         {
             // 디렉토리가 존재하지 않으면 디렉토리 생성
@@ -48,7 +48,7 @@ public class InputAlarmNameDialog extends DialogFragment {
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        recorder.setOutputFile(RECORED_FILE.getAbsolutePath() + "/YourVoiceAlarm/alarm_user/yourAlarm.mp4");
+        recorder.setOutputFile(RECORED_FILE.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user/yourAlarm.mp4");
         recorder.setMaxDuration(3000);
 
 
@@ -73,11 +73,11 @@ public class InputAlarmNameDialog extends DialogFragment {
                             Toast.makeText(getActivity(), "3초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
 
                             recorder.prepare();
-                            recorder.start();
+                            recorder.start();///Android/data/com.drinkssu.yourvoicealarm/
 
 
-                            File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/YourVoiceAlarm/alarm_user", "yourAlarm.mp4");
-                            File fileNow = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/YourVoiceAlarm/alarm_user", data + ".mp4");
+                            File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", "yourAlarm.mp4");
+                            File fileNow = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", data + ".mp4");
 
                             filePre.renameTo(fileNow);
                             Toast.makeText(getActivity(), "등록완료", Toast.LENGTH_SHORT).show();
