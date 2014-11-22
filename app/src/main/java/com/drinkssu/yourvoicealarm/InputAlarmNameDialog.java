@@ -37,19 +37,26 @@ public class InputAlarmNameDialog extends DialogFragment {
 
 
         File path = null;
+        File path2 = null;
         path = new File(RECORED_FILE.getAbsolutePath()+"/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user"); // 디렉토리 만들어쥬는부분!!!
         if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
         {
             // 디렉토리가 존재하지 않으면 디렉토리 생성
             path.mkdirs();
         }
+        path2 = new File(RECORED_FILE.getAbsolutePath()+"/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp"); // 디렉토리 만들어쥬는부분!!!
+        if ( !path2.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path2.mkdirs();
+        }
 
 
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        recorder.setOutputFile(RECORED_FILE.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user/yourAlarm.mp4");
-        recorder.setMaxDuration(3000);
+        recorder.setOutputFile(RECORED_FILE.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp/yourAlarm.mp4");
+        recorder.setMaxDuration(4000);
 
 
         eInputName = (TextView)rootView.findViewById(R.id.eInputAlarmName);
@@ -76,7 +83,7 @@ public class InputAlarmNameDialog extends DialogFragment {
                             recorder.start();///Android/data/com.drinkssu.yourvoicealarm/
 
 
-                            File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", "yourAlarm.mp4");
+                            File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp", "yourAlarm.mp4");
                             File fileNow = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", data + ".mp4");
 
                             filePre.renameTo(fileNow);
@@ -94,7 +101,7 @@ public class InputAlarmNameDialog extends DialogFragment {
                                 }
 
 
-                            }, 3000);
+                            }, 4000);
 
 
                         } catch (Exception e) {
