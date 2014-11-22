@@ -46,6 +46,7 @@ public class create_alarm_activity extends ActionBarActivity {
             return true;
         }
         else if (id == R.id.action_Cancel) {
+            finish();
             return true;
         }
 

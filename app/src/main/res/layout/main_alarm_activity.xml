@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:id="@+id/imageButton2"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/btn_20"
+            android:src="@drawable/btn_2"
             android:layout_marginTop="-10px"
             android:layout_marginBottom="-10px"
             android:layout_marginEnd="-10px"
