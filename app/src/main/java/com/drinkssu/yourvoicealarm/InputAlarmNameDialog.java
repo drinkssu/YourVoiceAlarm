@@ -56,7 +56,7 @@ public class InputAlarmNameDialog extends DialogFragment {
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         recorder.setOutputFile(RECORED_FILE.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp/yourAlarm.mp4");
-        recorder.setMaxDuration(4000);
+        recorder.setMaxDuration(4020);
 
 
         eInputName = (TextView)rootView.findViewById(R.id.eInputAlarmName);
@@ -101,7 +101,7 @@ public class InputAlarmNameDialog extends DialogFragment {
                                 }
 
 
-                            }, 4000);
+                            }, 4020);
 
 
                         } catch (Exception e) {
