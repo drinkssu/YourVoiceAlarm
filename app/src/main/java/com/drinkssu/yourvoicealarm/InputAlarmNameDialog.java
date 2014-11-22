@@ -3,6 +3,7 @@ package com.drinkssu.yourvoicealarm;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class InputAlarmNameDialog extends DialogFragment {
     LayoutInflater inflater;
     public static String data = null;
     MediaRecorder recorder = new MediaRecorder();         // 음성 녹음을 위한 MediaRecord 선언
+    FragmentManager fm;
 
     private File RECORED_FILE = Environment.getExternalStorageDirectory();
 
@@ -34,6 +36,7 @@ public class InputAlarmNameDialog extends DialogFragment {
 
         inflater = getActivity().getLayoutInflater();
         rootView = inflater.inflate(R.layout.activity_input_alarm_name_dialog, null);
+        fm = getFragmentManager();
 
 
         File path = null;
@@ -98,6 +101,9 @@ public class InputAlarmNameDialog extends DialogFragment {
                                     recorder.stop();
                                     recorder.release();
                                     recorder = null;
+
+                                    AlarmListDialog kkkk = new AlarmListDialog();
+                                    kkkk.show(fm, "showshowshow");
                                 }
 
 
