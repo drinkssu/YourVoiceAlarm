@@ -42,7 +42,7 @@
         </activity>
         <activity
             android:name="com.drinkssu.yourvoicealarm.create_alarm_activity"
-            android:label="@string/title_activity_create_alarm_activity" >
+            android:label="알람 추가" >
         </activity>
         <activity
             android:name="com.drinkssu.yourvoicealarm.RecordVoice"

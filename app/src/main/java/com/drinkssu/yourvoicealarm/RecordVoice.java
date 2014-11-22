@@ -1,6 +1,7 @@
 package com.drinkssu.yourvoicealarm;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.media.MediaPlayer;
@@ -11,9 +12,11 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -27,7 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class RecordVoice extends ActionBarActivity {
+public class RecordVoice  extends Fragment {
     int count;
     FragmentManager fm = getFragmentManager();
     MediaPlayer player = new MediaPlayer();             // 음성 재생을 위한 MediaPlayer 선언
@@ -37,17 +40,21 @@ public class RecordVoice extends ActionBarActivity {
     private File RECORED_FILE = Environment.getExternalStorageDirectory();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record_voice);
+    public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState)
+    {
 
-        init();
+        return inflater.inflate(R.layout.activity_record_voice, container, false);
+
 
 
     }
+    public void onStart() {
+        super.onStart();
+        init();
+    }
 
     private void init() {
-        prograssbar = (ProgressBar)findViewById(R.id.progressBar);
+        prograssbar = (ProgressBar)getActivity().findViewById(R.id.progressBar);
 
 
 
@@ -70,7 +77,7 @@ File path = null;
         recorder.setMaxDuration(4000);
 
 
-        Button btnRecord = (Button)findViewById(R.id.bRecordVoice);
+        Button btnRecord = (Button)getActivity().findViewById(R.id.bRecordVoice);
 
         btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +99,7 @@ File path = null;
                             }
                         }
                     }.start();
-                    Toast.makeText(getApplicationContext(), "4초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "3초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
                     recorder.prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -106,13 +113,13 @@ File path = null;
                         recorder.stop();
                         recorder.release();
                         recorder = null;
-                        Toast.makeText(getApplicationContext(), "녹음종료", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "녹음종료", Toast.LENGTH_SHORT).show();
 
                      InputAlarmNameDialog dia = new InputAlarmNameDialog();
                     dia.show(fm, "input alarm name");
 
                     }
-                }, 4000);
+                }, 3000);
 
 
 
@@ -120,13 +127,13 @@ File path = null;
         });
 
 
-        ImageView equl = (ImageView)findViewById(R.id.equlizer);
+        ImageView equl = (ImageView)getActivity().findViewById(R.id.equlizer);
 
         Glide.with(this)
                 .load(R.drawable.equalizer)
                 .into(equl);
 
-        Button btnAlarmList = (Button)findViewById(R.id.bAlarmList);
+        Button btnAlarmList = (Button)getActivity().findViewById(R.id.bAlarmList);
         btnAlarmList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,28 +145,5 @@ File path = null;
 
             }
         });
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_record_voice, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

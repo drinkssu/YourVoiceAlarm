@@ -76,6 +76,7 @@ public class Main_alarm extends Activity {
             @Override
             public void onClick(View v) {
                 //frag = new RecordVoice();
+                frag = new null_view();
                 view_frag();
                 if(select_position==1) {
                     select_position=2;
@@ -103,6 +104,8 @@ public class Main_alarm extends Activity {
         main_btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                frag = new RecordVoice();
+                view_frag();
                 if(select_position==1) {
                     select_position=3;
                     animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 2, 0, 0, 0, 0);

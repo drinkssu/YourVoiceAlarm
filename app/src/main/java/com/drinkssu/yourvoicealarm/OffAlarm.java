@@ -169,7 +169,6 @@ public class OffAlarm extends Activity{
         }
         return super.onKeyDown(keyCode, event);
     }
-
     protected void onUserLeaveHint(){
         super.onUserLeaveHint();
     }
