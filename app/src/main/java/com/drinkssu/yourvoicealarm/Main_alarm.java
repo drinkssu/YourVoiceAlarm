@@ -76,7 +76,7 @@ public class Main_alarm extends Activity {
             @Override
             public void onClick(View v) {
                 //frag = new RecordVoice();
-                frag = new null_view();
+                frag = new Ranking();
                 view_frag();
                 if(select_position==1) {
                     select_position=2;
