@@ -77,7 +77,7 @@ public class InputAlarmNameDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
 
                         try {
-                            Toast.makeText(getActivity(), "3초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "4초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
 
                             recorder.prepare();
                             recorder.start();///Android/data/com.drinkssu.yourvoicealarm/
