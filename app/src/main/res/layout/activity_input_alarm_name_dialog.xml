@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -11,11 +12,13 @@
         android:layout_gravity="center"
         android:textColor="#FF00FF"
         android:textSize="20dp"
+        android:textAlignment="center"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="인식이 정확할 수 있도록 한번 더 녹음버튼을 눌러주세요"
+        android:text="인식된 내용이 맞습니까? 잘못됐다면 수정후 녹음, 맞다면 녹음버튼을 눌러서 다시한번 녹음하세요"
         android:textColor="#ff0000"
+        android:layout_gravity="center"
         />
 </LinearLayout>
