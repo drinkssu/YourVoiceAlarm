@@ -40,16 +40,11 @@ import java.util.TimerTask;
 
 public class RecordVoice  extends Fragment {
 
-    private final int GOOGLE_STT = 1000, MY_UI=1001;				//requestCode. ���������ν�, ���� ���� Activity
+    private final int GOOGLE_STT = 1000, MY_UI=1001;
     private ArrayList<String> mResult;
     private  String  mOneResult;
-    private String mSelectedString;										//��� list �� ����ڰ� ������ �ؽ�Ʈ
-    private TextView mResultTextView;
-    int count;
+
     FragmentManager fm;
-    MediaPlayer player;             // 음성 재생을 위한 MediaPlayer 선언
-    MediaRecorder recorder;
-    private File RECORED_FILE = Environment.getExternalStorageDirectory();
 
     ProgressBar prograssbar;
 
@@ -77,23 +72,7 @@ public class RecordVoice  extends Fragment {
             public void onClick(View v) {
 
                     startActivityForResult(new Intent(getActivity(), CustomUIActivity.class), MY_UI);
-                    final Handler barHandler=new Handler();
 
-                    new Thread(){
-                        public void run() {
-                            count=0;
-                            while ( count < 4 ) {
-                                try {Thread.sleep(1000);}catch(Exception e){}
-                                barHandler.post(new Runnable() {
-                                    public void run() {
-                                        prograssbar.setProgress(count);
-                                    }
-                                });
-                                count++;
-
-                            }
-                        }
-                    }.start();
 
             }
         });
@@ -122,42 +101,42 @@ public class RecordVoice  extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
 
-        if( resultCode == -1  && (requestCode == GOOGLE_STT || requestCode == MY_UI) ){		//��� ������
-            showSelectDialog(requestCode, data);				//��� ���̾�α׷� ���.
+        if( resultCode == -1  && (requestCode == GOOGLE_STT || requestCode == MY_UI) ){
+            showSelectDialog(requestCode, data);
         }
-        else{															//��� ������ ���� �޽��� ���
+        else{
             String msg = null;
 
-            //���� ���� activity���� �Ѿ���� ���� �ڵ带 �з�
+
             switch(resultCode){
                 case SpeechRecognizer.ERROR_AUDIO:
-                    msg = "오디오 에러.";
+                    msg = "오디오 에러";
                     break;
                 case SpeechRecognizer.ERROR_CLIENT:
-                    msg = "클라이언트 에러.";
+                    msg = "클라이언트 에러";
                     break;
                 case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
-                    msg = "퍼미션 에러.";
+                    msg = "퍼미션 에러";
                     break;
                 case SpeechRecognizer.ERROR_NETWORK:
                 case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
-                    msg = "네트워크 에러.";
+                    msg = "네트워크 에러";
                     break;
                 case SpeechRecognizer.ERROR_NO_MATCH:
-                    msg = "인식 불가.";
+                    msg = "인식 불가";
                     break;
                 case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
-                    msg = "인식 바쁨.";
+                    msg = "인식 바쁨";
                     break;
                 case SpeechRecognizer.ERROR_SERVER:
-                    msg = "서버 에러.";
+                    msg = "서버 에러";
                     break;
                 case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
                     msg = "스피치 타임아웃";
                     break;
             }
 
-            if(msg != null)		//���� �޽����� null�� �ƴϸ� �޽��� ���
+            if(msg != null)
                 Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         }
     }
@@ -179,7 +158,6 @@ public class RecordVoice  extends Fragment {
         mOneResult = mResult.get(0);            // 많은 예시값 중에서 첫번째거 -> 정확도 높은거 가져오기
 
 
-Toast.makeText(getActivity().getApplicationContext(),mOneResult,Toast.LENGTH_LONG).show();
         InputAlarmNameDialog dia = new InputAlarmNameDialog();
         dia.data = mOneResult;
         dia.show(fm, "input alarm name");

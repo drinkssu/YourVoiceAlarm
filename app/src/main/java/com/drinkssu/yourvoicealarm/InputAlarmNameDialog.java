@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,12 +20,14 @@ import java.io.File;
 
 public class InputAlarmNameDialog extends DialogFragment {
 
-    TextView eInputName;
+    EditText eInputName;
     View rootView;
+    View progressView;
     LayoutInflater inflater;
     public static String data = null;
     MediaRecorder recorder = new MediaRecorder();         // 음성 녹음을 위한 MediaRecord 선언
     FragmentManager fm;
+    ProgressBar mainPrograssbar;
 
     private File RECORED_FILE = Environment.getExternalStorageDirectory();
 
@@ -36,6 +39,7 @@ public class InputAlarmNameDialog extends DialogFragment {
 
         inflater = getActivity().getLayoutInflater();
         rootView = inflater.inflate(R.layout.activity_input_alarm_name_dialog, null);
+
         fm = getFragmentManager();
 
 
@@ -62,7 +66,7 @@ public class InputAlarmNameDialog extends DialogFragment {
         recorder.setMaxDuration(4020);
 
 
-        eInputName = (TextView)rootView.findViewById(R.id.eInputAlarmName);
+        eInputName = (EditText)rootView.findViewById(R.id.eInputAlarmName);
         eInputName.setText(data);
         builder.setView(rootView)
 
@@ -75,22 +79,16 @@ public class InputAlarmNameDialog extends DialogFragment {
 
                     }
                 })
-                .setPositiveButton("저장", new DialogInterface.OnClickListener() {
+                .setPositiveButton("녹음", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                         try {
                             Toast.makeText(getActivity(), "4초간 녹음이 시작됩니다", Toast.LENGTH_SHORT).show();
 
+
                             recorder.prepare();
                             recorder.start();///Android/data/com.drinkssu.yourvoicealarm/
-
-
-                            File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp", "yourAlarm.mp4");
-                            File fileNow = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", data + ".mp4");
-
-                            filePre.renameTo(fileNow);
-                            Toast.makeText(getActivity(), "등록완료", Toast.LENGTH_SHORT).show();
 
 
                             Handler mHandler = new Handler();
@@ -102,12 +100,23 @@ public class InputAlarmNameDialog extends DialogFragment {
                                     recorder.release();
                                     recorder = null;
 
+                                    File filePre = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp", "yourAlarm.mp4");
+                                    File fileNow = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user", data + ".mp4");
+
+                                    filePre.renameTo(fileNow);
+
+
                                     AlarmListDialog kkkk = new AlarmListDialog();
+                                    kkkk.check = 1;
+                                    kkkk.fileName = data;
                                     kkkk.show(fm, "showshowshow");
+
+
                                 }
 
 
                             }, 4020);
+
 
 
                         } catch (Exception e) {
