@@ -4,16 +4,26 @@
     android:weightSum="1"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:id="@+id/mtextView"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:text="알람랭킹에 등록될 닉네임을 등록해주세요.\nex) 안졸리나졸리다, 달려야하니, …."
+        android:background="@drawable/xml_border"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"/>
     <View
-        android:layout_weight="0.4"
+        android:layout_weight="0.10"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
     <EditText
         android:id="@+id/mnickname"
         android:hint="유저 닉네임"
         android:gravity="center"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:maxLength="10"
         android:singleLine="true"/>
@@ -41,6 +51,6 @@
         android:id="@+id/go"
         android:text="설정 완료"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content" />
 </LinearLayout>

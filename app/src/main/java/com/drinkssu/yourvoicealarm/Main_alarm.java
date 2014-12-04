@@ -50,6 +50,7 @@ public class Main_alarm extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_alarm_activity);
+        mk_dir();
         frag = new Main_alarm_list();
         view_frag();
         AnimationSet set = new AnimationSet(true);
@@ -60,8 +61,9 @@ public class Main_alarm extends Activity {
 
         main_btn1 = (ImageButton)findViewById(R.id.imageButton1);
         main_btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+                @Override
+                public void onClick(View v) {
                     frag = new Main_alarm_list();
                     view_frag();
                 if(select_position==1) {
@@ -107,8 +109,6 @@ public class Main_alarm extends Activity {
                     animation.setDuration(420);
                     animation.setFillAfter(true);
                     select_effect1.startAnimation(animation);
-                    ;
-
                 }
             }
         });
@@ -141,6 +141,17 @@ public class Main_alarm extends Activity {
         
         set_user_info();
         
+    }
+
+    private void mk_dir()
+    {
+        File path = null;
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
     }
 
     private void set_user_info() {
