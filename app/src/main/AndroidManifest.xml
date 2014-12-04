@@ -52,6 +52,9 @@
         <activity android:name=".CustomUIActivity"
             android:theme="@android:style/Theme.Translucent"
             ></activity>
+        <activity android:name=".user_info">
+
+        </activity>
     </application>
 
 </manifest>

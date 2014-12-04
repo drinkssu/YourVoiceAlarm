@@ -32,7 +32,7 @@ public class AlarmListDialog extends DialogFragment{
     static int check=0;
     static String fileName="";
     static int state = 0;
-  MediaPlayer mp= new MediaPlayer();
+    MediaPlayer mp= new MediaPlayer();
 
 
 
@@ -87,34 +87,34 @@ public class AlarmListDialog extends DialogFragment{
 
             //Todo 여기다가 재생하는거 코드
 
-                try
+            try
+            {
+
+                if(mp.isPlaying())
                 {
 
-                    if(mp.isPlaying())
-                    {
+                    mp.stop();
+                    mp.reset();
+                }
 
+                mp.setDataSource(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user/"+ fileName + ".mp4"); // mp3파일 경로
+                mp.prepare();      // 준비
+                mp.setLooping(false);    // 반복재생 false
+                mp.start();      // 시작
+                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
                         mp.stop();
                         mp.reset();
                     }
-
-                    mp.setDataSource(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user/"+ fileName + ".mp4"); // mp3파일 경로
-                    mp.prepare();      // 준비
-                    mp.setLooping(false);    // 반복재생 false
-                    mp.start();      // 시작
-                    mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            mp.stop();
-                            mp.reset();
-                        }
-                    });
+                });
 
 
-                }
-                catch(IOException e)
-                {
+            }
+            catch(IOException e)
+            {
 
-                }
+            }
 
         }
     };
@@ -122,7 +122,7 @@ public class AlarmListDialog extends DialogFragment{
     private AdapterView.OnItemLongClickListener mItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent,final View view,final int position,final long id) {
-           final String fileName = (String)parent.getAdapter().getItem(position);
+            final String fileName = (String)parent.getAdapter().getItem(position);
             //Todo 삭제하는 코드
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
@@ -136,19 +136,19 @@ public class AlarmListDialog extends DialogFragment{
             alertDialogBuilder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int id) {
-                        state = 1;
+                    state = 1;
                     File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user",fileName+".mp4");
-                   if( file.delete())
-                   {
+                    if( file.delete())
+                    {
 
-                       Toast.makeText(getActivity(),"삭제성공",Toast.LENGTH_SHORT).show();
-                       dismiss();
+                        Toast.makeText(getActivity(),"삭제성공",Toast.LENGTH_SHORT).show();
+                        dismiss();
 
-                   }
+                    }
                     else
-                   {
-                       Toast.makeText(getActivity(),"삭제실패",Toast.LENGTH_SHORT).show();
-                   }
+                    {
+                        Toast.makeText(getActivity(),"삭제실패",Toast.LENGTH_SHORT).show();
+                    }
 
                 }
 
