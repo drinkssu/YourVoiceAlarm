@@ -8,5 +8,6 @@
     <string name="title_activity_create_alarm_activity">create_alarm_activity</string>
     <string name="title_activity_record_voice">RecordVoice</string>
     <string name="title_activity_input_alarm_name_dialog">InputAlarmNameDialog</string>
+    <string name="title_activity_alarm_setting">AlarmSetting</string>
 
 </resources>

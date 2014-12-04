@@ -11,6 +11,7 @@ import android.speech.SpeechRecognizer;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 /**
  * Created by JinGyu on 2014-11-22.
@@ -90,7 +91,6 @@ public class CustomUIActivity extends Activity {
         //���� �ν� ��� ����
         @Override public void onResults(Bundle results) {
             mHandler.removeMessages(END);			//�ڵ鷯�� ���� �޽��� ����
-
             Intent i = new Intent();			//��� ��ȯ�� intent
             i.putExtras(results);				//��� ���
             setResult(RESULT_OK, i);		//��� ����

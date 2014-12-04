@@ -62,10 +62,10 @@ public class Main_alarm extends Activity {
         main_btn1 = (ImageButton)findViewById(R.id.imageButton1);
         main_btn1.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    frag = new Main_alarm_list();
-                    view_frag();
+            @Override
+            public void onClick(View v) {
+                frag = new Main_alarm_list();
+                view_frag();
                 if(select_position==1) {
                     ;
                 }
@@ -138,9 +138,9 @@ public class Main_alarm extends Activity {
                 }
             }
         });
-        
+
         set_user_info();
-        
+
     }
 
     private void mk_dir()

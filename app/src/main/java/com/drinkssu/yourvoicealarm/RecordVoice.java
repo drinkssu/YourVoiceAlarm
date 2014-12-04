@@ -28,6 +28,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import com.bumptech.glide.Glide;
@@ -38,21 +41,23 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class RecordVoice  extends Fragment {
-
+public class RecordVoice  extends Fragment{
+    FragmentManager fm;
     private final int GOOGLE_STT = 1000, MY_UI=1001;
     private ArrayList<String> mResult;
     private  String  mOneResult;
 
-    FragmentManager fm;
-
     ProgressBar prograssbar;
+
+
+
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState)
     {
+
 
         return inflater.inflate(R.layout.activity_record_voice, container, false);
     }
@@ -64,6 +69,7 @@ public class RecordVoice  extends Fragment {
     private void init() {
         prograssbar = (ProgressBar)getActivity().findViewById(R.id.progressBar);
         fm = getFragmentManager();
+
         Button btnRecord = (Button)getActivity().findViewById(R.id.bRecordVoice);
 
 
@@ -71,12 +77,12 @@ public class RecordVoice  extends Fragment {
             @Override
             public void onClick(View v) {
 
-                    startActivityForResult(new Intent(getActivity(), CustomUIActivity.class), MY_UI);
+                Intent i = new Intent(getActivity(), AlarmSetting.class);
+                startActivityForResult(i, 8);
 
 
             }
         });
-
 
         ImageView equl = (ImageView)getActivity().findViewById(R.id.equlizer);
 
@@ -99,53 +105,27 @@ public class RecordVoice  extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+super.onActivityResult(requestCode, resultCode, data);
         if( resultCode == -1  && (requestCode == GOOGLE_STT || requestCode == MY_UI) ){
             showSelectDialog(requestCode, data);
+            //todo setting 파일 여기서 저장해야할듯
+
+
+
+
+
+
         }
-        else{
-            String msg = null;
+        else if(resultCode == -1 && requestCode == 8)
+        {
+            startActivityForResult(new Intent(getActivity(), CustomUIActivity.class) , MY_UI);
 
-
-            switch(resultCode){
-                case SpeechRecognizer.ERROR_AUDIO:
-                    msg = "오디오 에러";
-                    break;
-                case SpeechRecognizer.ERROR_CLIENT:
-                    msg = "클라이언트 에러";
-                    break;
-                case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
-                    msg = "퍼미션 에러";
-                    break;
-                case SpeechRecognizer.ERROR_NETWORK:
-                case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
-                    msg = "네트워크 에러";
-                    break;
-                case SpeechRecognizer.ERROR_NO_MATCH:
-                    msg = "인식 불가";
-                    break;
-                case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
-                    msg = "인식 바쁨";
-                    break;
-                case SpeechRecognizer.ERROR_SERVER:
-                    msg = "서버 에러";
-                    break;
-                case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
-                    msg = "스피치 타임아웃";
-                    break;
-            }
-
-            if(msg != null)
-                Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         }
+
+
     }
-
-    //��� list ����ϴ� ���̾�α� ��
-    private void showSelectDialog(int requestCode, Intent data){
-
-
-
+    private void showSelectDialog(int requestCode, Intent data) {
         String key = "";
         if(requestCode == GOOGLE_STT)					//���������ν��̸�
             key = RecognizerIntent.EXTRA_RESULTS;	//Ű�� ����
@@ -163,5 +143,5 @@ public class RecordVoice  extends Fragment {
         dia.show(fm, "input alarm name");
 
 
-
-}}
+    }
+}
