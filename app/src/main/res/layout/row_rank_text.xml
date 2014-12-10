@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/row_ranking_ranknum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="순위"/>
+
+        <TextView
+            android:id="@+id/row_ranking_alarmname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_ranknum_text"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="알람 이름"/>
+
+        <TextView
+            android:id="@+id/row_ranking_rankpoint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_alarmname_text"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="랭킹포인트"/>
+
+        <TextView
+            android:id="@+id/row_ranking_usernickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_rankpoint_text"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="닉네임"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

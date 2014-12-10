@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp">
+
+    <RelativeLayout
+        android:id="@+id/down"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/row_ranking_ranknum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/row_ranking_alarmname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_ranknum"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/row_ranking_rankpoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_alarmname"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/row_ranking_usernickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_rankpoint"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

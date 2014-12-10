@@ -1,0 +1,245 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="4">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_category0"
+            android:text="　아침　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category1"
+            android:text="　낮잠　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category2"
+            android:text="　식사　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category3"
+            android:text="　격려　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_category4"
+            android:text="　애교　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category5"
+            android:text="　사랑　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category6"
+            android:text="　엽기　"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_category7"
+            android:text="격한애정"
+            android:background="#ffadcdff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="-10px"
+            android:layout_marginBottom="-10px"
+            android:layout_marginEnd="-10px"
+            android:layout_marginStart="-10px"
+            android:layout_margin="-10px"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="26dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/row_ranking_ranknum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19dp"
+            android:textColor="#ffffff"
+            android:text="순위"/>
+        <View
+            android:background="#ff00e9ff"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/row_ranking_usernickname_text" />
+
+        <TextView
+            android:id="@+id/row_ranking_alarmname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_ranknum_text"
+            android:textSize="19dp"
+            android:textColor="#ffffff"
+            android:text="          알람이름           "/>
+        <View
+            android:background="#ff00e9ff"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/row_ranking_rankpoint_text" />
+        <TextView
+            android:id="@+id/row_ranking_rankpoint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="19dp"
+            android:textColor="#ffffff"
+            android:text="평점"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/row_ranking_alarmname_text" />
+        <View
+            android:background="#ff00e9ff"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/row_ranking_ranknum_text" />
+        <TextView
+            android:id="@+id/row_ranking_usernickname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/row_ranking_alarmname_text"
+            android:textSize="19dp"
+            android:textColor="#ffffff"
+            android:text="         닉네임"/>
+
+</LinearLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

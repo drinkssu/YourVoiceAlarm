@@ -14,7 +14,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -62,10 +61,10 @@ public class Main_alarm extends Activity {
         main_btn1 = (ImageButton)findViewById(R.id.imageButton1);
         main_btn1.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    frag = new Main_alarm_list();
-                    view_frag();
+            @Override
+            public void onClick(View v) {
+                frag = new Main_alarm_list();
+                view_frag();
                 if(select_position==1) {
                     ;
                 }
@@ -89,8 +88,7 @@ public class Main_alarm extends Activity {
         main_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //frag = new RecordVoice();
-                frag = new Ranking();
+                frag = new com.drinkssu.yourvoicealarm.AlarmRank.AlarmRankFragment();
                 view_frag();
                 if(select_position==1) {
                     select_position=2;
@@ -138,9 +136,9 @@ public class Main_alarm extends Activity {
                 }
             }
         });
-        
+
         set_user_info();
-        
+
     }
 
     private void mk_dir()
@@ -151,6 +149,47 @@ public class Main_alarm extends Activity {
         {
             // 디렉토리가 존재하지 않으면 디렉토리 생성
             path.mkdirs();
+        }path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user_v"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_user_t"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_base_v"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_base_t"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_server_v"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+        }
+        path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.alarm_server_t"); // 디렉토리 만들어쥬는부분!!!!
+        if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+        {
+            // 디렉토리가 존재하지 않으면 디렉토리 생성
+            path.mkdirs();
+            path = new File(mk_user_info.getAbsolutePath() + "/Android/data/com.drinkssu.yourvoicealarm/YourVoiceAlarm/.tmp"); // 디렉토리 만들어쥬는부분!!!!
+            if ( !path.exists() )                   // 디렉토리 없으면 만들어요!!
+            {
+                // 디렉토리가 존재하지 않으면 디렉토리 생성
+                path.mkdirs();
+            }
         }
     }
 

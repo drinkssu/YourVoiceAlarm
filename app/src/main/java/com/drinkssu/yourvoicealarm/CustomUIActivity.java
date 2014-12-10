@@ -90,7 +90,6 @@ public class CustomUIActivity extends Activity {
         //���� �ν� ��� ����
         @Override public void onResults(Bundle results) {
             mHandler.removeMessages(END);			//�ڵ鷯�� ���� �޽��� ����
-
             Intent i = new Intent();			//��� ��ȯ�� intent
             i.putExtras(results);				//��� ���
             setResult(RESULT_OK, i);		//��� ����

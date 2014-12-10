@@ -4,181 +4,212 @@
     android:id="@+id/create_alarm_layout"
     android:orientation="vertical"
     android:weightSum="1"
-   >
-
-
-    // 시간
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="시간선택"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"/>
-<TimePicker
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/timePicker"
-    android:layout_gravity="center"
-    android:scaleX="1.3"
-    android:scaleY="1.3"
-
-
     >
-    </TimePicker>
-    // 요일
 
-    <View
-        android:layout_height="2dip"
+    <ScrollView
         android:layout_width="match_parent"
-        android:background="#ff417151" />   // 가로 경계선
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="요일선택"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"/>
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="7"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:longClickable="false">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/sun"
-
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/mon"
-
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tue"
+            // 시간
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="시간선택"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"/>
+            <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker"
+                android:layout_gravity="center"
+                android:scaleX="1.3"
+                android:scaleY="1.3"
 
 
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/wen"
+                >
+            </TimePicker>
+            // 요일
 
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/thu"
+            <View
+                android:layout_height="2dip"
+                android:layout_width="match_parent"
+                android:background="#ff417151" />   // 가로 경계선
 
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/fri"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="요일선택"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"/>
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="7"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:longClickable="false">
 
-            />
-        <CheckBox
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/sat"
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sun"
 
-            />
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mon"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:textColor="#ffbc1a17"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="월"
-            android:textSize="20dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="화"
-            android:textSize="20dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수"
-            android:textSize="20dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="목"
-            android:textSize="20dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="금"
-            android:textSize="20dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:text="토"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:textColor="#5F0FFF"/>
-        </GridLayout>
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tue"
 
 
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wen"
 
-    // 반복
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="매주 반복"
-        android:layout_marginRight="10dp"
-        android:id="@+id/switchRepeat"
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/thu"
 
-        />
-    // 알림음
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fri"
 
-    <View
-        android:layout_height="2dip"
-        android:layout_width="match_parent"
-        android:background="#ff417151"
-        android:layout_marginTop="10dp"
-        />   // 가로 경계선
+                    />
+                <CheckBox
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sat"
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="알림음 선택"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"/>
+                    />
 
-<Spinner
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:visibility="visible"
-    android:spinnerMode="dropdown"
-    android:id="@+id/spRingtone"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:textColor="#ffbc1a17"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="월"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="화"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="수"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="금"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="토"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:textColor="#5F0FFF"/>
+            </GridLayout>
 
 
-    ></Spinner>
+<!--
+            // 반복
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="매주 반복"
+                android:layout_marginRight="10dp"
+                android:id="@+id/switchRepeat"
+
+                />
+            -->
+            // 알림음
+
+            <View
+                android:layout_height="2dip"
+                android:layout_width="match_parent"
+                android:background="#ff417151"
+                android:layout_marginTop="10dp"
+                />   // 가로 경계선
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="알람음 선택"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp"
+                android:text=""
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/xml_border2"/>
+                <TextView
+                    android:id="@+id/selectRingtone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:clickable="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="20dp"
+                    android:text="알람음을 선택해주세요"
+                    android:gravity="left"/>
+                </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>
